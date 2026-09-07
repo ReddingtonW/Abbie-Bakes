@@ -566,4 +566,22 @@
   @media (max-width:640px){
     .tile-group{ grid-template-columns:1fr; }
     .wizard-panel{ padding:26px 18px 22px; }
+
+    .step-nav{
+      flex-wrap:wrap;
+      flex-direction:column-reverse;
+      align-items:stretch;
+      gap:12px;
+    }
+    .step-nav .spacer{ display:none; }
+    .step-nav .btn{
+      width:100%;
+      text-align:center;
+      padding:14px 20px;
+    }
+    .step-nav .btn-plain{
+      width:100%;
+      text-align:center;
+      padding:10px 6px;
+    }
   }
