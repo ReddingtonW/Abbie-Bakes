@@ -484,9 +484,11 @@
   .field textarea{ min-height:90px; resize:vertical; font-family:'Public Sans', sans-serif; }
 
   .tile-group{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-  .tile{ position:relative; cursor:pointer; }
+  .tile{ position:relative; cursor:pointer; display:block; }
   .tile input{ position:absolute; opacity:0; width:1px; height:1px; }
   .tile .tile-card{
+    display:block;
+    width:100%;
     border:1.5px solid var(--line);
     border-radius:16px;
     padding:20px 14px;
