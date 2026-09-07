@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order — Abbie Bakes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a class="logo" href="index.html">
+      <svg width="34" height="30" viewBox="0 0 34 30" fill="none">
+        <ellipse cx="17" cy="25" rx="16" ry="4.2" fill="#E5DFF1"/>
+        <ellipse cx="17" cy="16.5" rx="11.5" ry="3.4" fill="#F3D8DC"/>
+        <ellipse cx="17" cy="9" rx="7" ry="2.6" fill="#F6E8C6"/>
+      </svg>
+      <span class="logo-word">Abbie Bakes</span>
+    </a>
+    <nav class="links">
+      <a href="index.html#menu">Cakes</a>
+      <a href="index.html#flavours">Flavours</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#bread">Bread</a>
+      <a href="order.html">Order</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="order-hero">
+    <div class="wrap">
+      <p class="eyebrow">Request a quote</p>
+      <h1>Let's plan your order.</h1>
+      <p class="lede">This is a quote request, not a firm booking — Abbie will get back to you to confirm the final price and date. Orders need at least <strong>4 weeks' notice</strong>.</p>
+    </div>
+  </section>
+
+  <section class="wizard">
+    <div class="wrap">
+      <div class="wizard-panel">
+
+        <div class="progress" id="progress">
+          <span class="dotstep active" data-dot="1"></span>
+          <span class="dotstep" data-dot="2"></span>
+          <span class="dotstep" data-dot="3"></span>
+          <span class="dotstep" data-dot="4"></span>
+        </div>
+
+        <!--
+          TODO (Formspree): create a free account at https://formspree.io,
+          create a new form, and replace YOUR_FORM_ID below with the real
+          endpoint ID (e.g. https://formspree.io/f/abcd1234). Until then,
+          this form will not actually deliver submissions anywhere.
+        -->
+        <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="New Abbie Bakes quote request">
+
+          <!-- STEP 1: product type -->
+          <div class="step visible" data-step="1">
+            <p class="step-eyebrow">Step 1 of 4</p>
+            <h2>What are you ordering?</h2>
+            <p class="step-sub">Pick one to see the right questions.</p>
+
+            <div class="tile-group" role="radiogroup" aria-label="Product type">
+              <label class="tile">
+                <input type="radio" name="product-type" value="Cake" required>
+                <span class="tile-card">
+                  <span class="mark m1"></span>
+                  <span class="tile-label">Cake</span>
+                </span>
+              </label>
+              <label class="tile">
+                <input type="radio" name="product-type" value="Muffins">
+                <span class="tile-card">
+                  <span class="mark m2"></span>
+                  <span class="tile-label">Muffins</span>
+                </span>
+              </label>
+              <label class="tile">
+                <input type="radio" name="product-type" value="Bread">
+                <span class="tile-card">
+                  <span class="mark m3"></span>
+                  <span class="tile-label">Bread</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="step-nav">
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-primary" data-next>Next</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: product-specific fields -->
+          <div class="step" data-step="2">
+            <p class="step-eyebrow">Step 2 of 4</p>
+            <h2 id="step2-title">Tell us more</h2>
+            <p class="step-sub">A few details so Abbie can quote accurately.</p>
+
+            <!-- CAKE fields -->
+            <div class="product-section" data-product="Cake">
+              <fieldset class="field">
+                <legend class="field-label">Layers <span style="font-weight:400; color:var(--ink-soft);">— 8 inch only, for now</span></legend>
+                <div class="pill-group" role="radiogroup" aria-label="Layers">
+                  <label class="pill"><input type="radio" name="cake-layers" value="2 layers"><span class="pill-face">2 layers — from £35</span></label>
+                  <label class="pill"><input type="radio" name="cake-layers" value="3 layers"><span class="pill-face">3 layers — from £45</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="field">
+                <legend class="field-label">Flavour</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Cake flavour">
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Chocolate cake, chocolate ganache, chocolate buttercream" data-reveal="cake-flavour-other" data-reveal-hide><span class="pill-face">Chocolate</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Victoria sponge, raspberry jam, vanilla buttercream" data-reveal="cake-flavour-other" data-reveal-hide><span class="pill-face">Victoria sponge</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Lemon cake, lemon curd, fresh lemon buttercream" data-reveal="cake-flavour-other" data-reveal-hide><span class="pill-face">Lemon</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Something else" data-reveal="cake-flavour-other"><span class="pill-face">Something else</span></label>
+                </div>
+                <div class="conditional" id="cake-flavour-other">
+                  <input type="text" name="cake-flavour-other-detail" placeholder="Describe the flavour you'd like">
+                </div>
+              </fieldset>
+
+              <fieldset class="field">
+                <legend class="field-label">Decoration</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Cake decoration">
+                  <label class="pill"><input type="radio" name="cake-decoration" value="Chocolate decoration" data-reveal="cake-decoration-other"><span class="pill-face">Chocolate decoration</span></label>
+                  <label class="pill"><input type="radio" name="cake-decoration" value="Fresh fruit decoration" data-reveal="cake-decoration-other"><span class="pill-face">Fresh fruit decoration</span></label>
+                  <label class="pill"><input type="radio" name="cake-decoration" value="Something else" data-reveal="cake-decoration-other"><span class="pill-face">Something else</span></label>
+                </div>
+                <div class="conditional" id="cake-decoration-other">
+                  <input type="text" name="cake-decoration-other-detail" placeholder="Describe the decoration you'd like">
+                </div>
+              </fieldset>
+
+              <fieldset class="field">
+                <legend class="field-label">Dietary</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Cake dietary requirements">
+                  <label class="pill"><input type="radio" name="cake-dietary" value="Standard"><span class="pill-face">Standard</span></label>
+                  <label class="pill"><input type="radio" name="cake-dietary" value="Gluten free (+£5–8)"><span class="pill-face">Gluten free (+£5–8)</span></label>
+                  <label class="pill"><input type="radio" name="cake-dietary" value="Dairy free (+£5–8)"><span class="pill-face">Dairy free (+£5–8)</span></label>
+                </div>
+              </fieldset>
+
+            </div>
+
+            <!-- MUFFIN fields -->
+            <div class="product-section" data-product="Muffins">
+              <fieldset class="field">
+                <legend class="field-label">Box size</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Muffin box size">
+                  <label class="pill"><input type="radio" name="muffin-size" value="Box of 12 (£15–18)"><span class="pill-face">Box of 12 — £15–18</span></label>
+                  <label class="pill"><input type="radio" name="muffin-size" value="Box of 24 (£30–33)"><span class="pill-face">Box of 24 — £30–33</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="field">
+                <legend class="field-label">Dietary</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Muffin dietary requirements">
+                  <label class="pill"><input type="radio" name="muffin-dietary" value="Standard"><span class="pill-face">Standard</span></label>
+                  <label class="pill"><input type="radio" name="muffin-dietary" value="Gluten free (+£5–8)"><span class="pill-face">Gluten free (+£5–8)</span></label>
+                  <label class="pill"><input type="radio" name="muffin-dietary" value="Dairy free (+£5–8)"><span class="pill-face">Dairy free (+£5–8)</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label class="field-label" for="muffin-notes">Flavour / decoration notes</label>
+                <textarea id="muffin-notes" name="muffin-notes" placeholder="Any flavour or decoration preferences?"></textarea>
+              </div>
+            </div>
+
+            <!-- BREAD fields -->
+            <div class="product-section" data-product="Bread">
+              <fieldset class="field">
+                <legend class="field-label">Type</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Bread type">
+                  <label class="pill"><input type="radio" name="bread-type" value="Rosemary & olive focaccia" data-reveal="bread-type-other"><span class="pill-face">Rosemary &amp; olive focaccia</span></label>
+                  <label class="pill"><input type="radio" name="bread-type" value="Plain focaccia" data-reveal="bread-type-other"><span class="pill-face">Plain focaccia</span></label>
+                  <label class="pill"><input type="radio" name="bread-type" value="Something else" data-reveal="bread-type-other"><span class="pill-face">Something else</span></label>
+                </div>
+                <div class="conditional" id="bread-type-other">
+                  <input type="text" name="bread-type-other-detail" placeholder="What kind of loaf are you after?">
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label class="field-label" for="bread-qty">Quantity</label>
+                <input type="number" id="bread-qty" name="bread-qty" min="1" value="1" style="max-width:120px;">
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="btn-plain" data-back>Back</button>
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-primary" data-next>Next</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: date + contact -->
+          <div class="step" data-step="3">
+            <p class="step-eyebrow">Step 3 of 4</p>
+            <h2>When &amp; who</h2>
+            <p class="step-sub">So Abbie can check availability and get back to you.</p>
+
+            <div class="lead-note">
+              <span>⏱</span>
+              <span>Orders need at least <strong>4 weeks' notice</strong>. The date field below won't let you pick anything sooner — treat it as when you'd like it ready for collection.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="date-needed">Date needed for collection</label>
+              <input type="date" id="date-needed" name="date-needed" required>
+              <p class="hint" id="date-hint"></p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="full-name">Your name</label>
+              <input type="text" id="full-name" name="full-name" required>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="notes">Allergies or anything else Abbie should know</label>
+              <textarea id="notes" name="notes" placeholder="Optional"></textarea>
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="btn-plain" data-back>Back</button>
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-primary" data-next>Review</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: review + submit -->
+          <div class="step" data-step="4">
+            <p class="step-eyebrow">Step 4 of 4</p>
+            <h2>Review &amp; send</h2>
+            <p class="step-sub">Check the details below, then send the request through.</p>
+
+            <ul class="review-list" id="reviewList"></ul>
+
+            <div class="quote-note">
+              This is a quote request. Abbie will reply by email to confirm the final price, availability and collection details.
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="btn-plain" data-back>Back</button>
+              <span class="spacer"></span>
+              <button type="submit" class="btn btn-primary">Send quote request</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <span class="logo-word">Abbie Bakes</span>
+    <p>Home‑baked cakes, muffins &amp; bread — orders taken by enquiry.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const form = document.getElementById('orderForm');
+  const steps = Array.from(form.querySelectorAll('.step'));
+  const dots = Array.from(document.querySelectorAll('.dotstep'));
+  let current = 1;
+
+  // ---- 4-week lead time on the date field ----
+  const dateInput = document.getElementById('date-needed');
+  const dateHint = document.getElementById('date-hint');
+  const earliest = new Date();
+  earliest.setDate(earliest.getDate() + 28);
+  const iso = earliest.toISOString().split('T')[0];
+  dateInput.min = iso;
+  const readable = earliest.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+  dateHint.textContent = 'Earliest available date: ' + readable;
+
+  // ---- product type -> reveal the right field group ----
+  const productRadios = form.querySelectorAll('input[name="product-type"]');
+  const productSections = form.querySelectorAll('.product-section');
+  const step2Title = document.getElementById('step2-title');
+
+  function setRequiredWithin(container, on){
+    container.querySelectorAll('input, select, textarea').forEach(el => {
+      if (el.dataset.alwaysOptional) return;
+    });
+  }
+
+  function showProduct(value){
+    productSections.forEach(sec => {
+      const active = sec.dataset.product === value;
+      sec.classList.toggle('visible', active);
+    });
+    if (value) step2Title.textContent = value + ' details';
+  }
+
+  productRadios.forEach(r => {
+    r.addEventListener('change', () => showProduct(r.value));
+  });
+
+  // ---- "Something else" conditional text reveals ----
+  form.querySelectorAll('[data-reveal]').forEach(input => {
+    input.addEventListener('change', () => {
+      const groupName = input.name;
+      form.querySelectorAll(`input[name="${groupName}"]`).forEach(sibling => {
+        const target = document.getElementById(sibling.dataset.reveal);
+        if (!target) return;
+        if (sibling === input && !sibling.hasAttribute('data-reveal-hide')) {
+          target.classList.add('visible');
+        } else if (sibling === input) {
+          target.classList.remove('visible');
+        }
+      });
+    });
+  });
+
+  // ---- step navigation ----
+  function isVisible(el){
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  }
+
+  function validateStep(stepEl){
+    const fields = stepEl.querySelectorAll('input, textarea, select');
+    for (const f of fields) {
+      if (!isVisible(f)) continue;
+      if (!f.checkValidity()) {
+        f.reportValidity();
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function goTo(n){
+    steps.forEach(s => s.classList.toggle('visible', Number(s.dataset.step) === n));
+    dots.forEach(d => {
+      const dn = Number(d.dataset.dot);
+      d.classList.toggle('active', dn === n);
+      d.classList.toggle('done', dn < n);
+    });
+    current = n;
+    if (n === 4) buildReview();
+    document.querySelector('.wizard-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  form.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const stepEl = steps.find(s => Number(s.dataset.step) === current);
+      if (!validateStep(stepEl)) return;
+      goTo(current + 1);
+    });
+  });
+
+  form.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => goTo(current - 1));
+  });
+
+  // prevent Enter key from submitting early
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && current < 4 && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+    }
+  });
+
+  // ---- build review summary ----
+  function val(name){
+    const el = form.querySelector(`[name="${name}"]:checked`) || form.querySelector(`[name="${name}"]`);
+    if (!el) return '';
+    if (el.type === 'radio') {
+      const checked = form.querySelector(`[name="${name}"]:checked`);
+      return checked ? checked.value : '';
+    }
+    return el.value;
+  }
+
+  function addRow(list, label, value){
+    if (!value) return;
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="r-label">${label}</span><span class="r-value"></span>`;
+    li.querySelector('.r-value').textContent = value;
+    list.appendChild(li);
+  }
+
+  function buildReview(){
+    const list = document.getElementById('reviewList');
+    list.innerHTML = '';
+    const product = val('product-type');
+    addRow(list, 'Ordering', product);
+
+    if (product === 'Cake') {
+      addRow(list, 'Layers', val('cake-layers'));
+      let flavour = val('cake-flavour');
+      if (flavour === 'Something else') flavour = val('cake-flavour-other-detail') || flavour;
+      addRow(list, 'Flavour', flavour);
+      let decoration = val('cake-decoration');
+      if (decoration === 'Something else') decoration = val('cake-decoration-other-detail') || decoration;
+      addRow(list, 'Decoration', decoration);
+      addRow(list, 'Dietary', val('cake-dietary'));
+    } else if (product === 'Muffins') {
+      addRow(list, 'Box size', val('muffin-size'));
+      addRow(list, 'Dietary', val('muffin-dietary'));
+      addRow(list, 'Notes', val('muffin-notes'));
+    } else if (product === 'Bread') {
+      let type = val('bread-type');
+      if (type === 'Something else') type = val('bread-type-other-detail') || type;
+      addRow(list, 'Type', type);
+      addRow(list, 'Quantity', val('bread-qty'));
+    }
+
+    const dateVal = document.getElementById('date-needed').value;
+    if (dateVal) {
+      const d = new Date(dateVal + 'T00:00:00');
+      addRow(list, 'Needed for', d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' }));
+    }
+    addRow(list, 'Name', val('full-name'));
+    addRow(list, 'Email', val('email'));
+    addRow(list, 'Phone', val('phone'));
+    addRow(list, 'Notes', val('notes'));
+  }
+})();
+</script>
+
+</body>
+</html>
