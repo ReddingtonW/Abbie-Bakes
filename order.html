@@ -197,6 +197,8 @@
               This is a quote request. I'll reply by email to confirm the final price, availability and collection details.
             </div>
 
+            <p class="form-error" id="formError" role="alert" hidden>Sorry, something went wrong sending that. Please try again, or email me at <a href="mailto:hello@abbiebakes.com">hello@abbiebakes.com</a>.</p>
+
             <div class="step-nav">
               <button type="button" class="btn-plain" data-back>Back</button>
               <span class="spacer"></span>
@@ -360,6 +362,29 @@
     addRow(list, 'Phone', val('phone'));
     addRow(list, 'Notes', val('notes'));
   }
+  // ---- send without leaving the page, then show the thank-you page ----
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const err = document.getElementById('formError');
+    const label = btn.textContent;
+    err.hidden = true;
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('Send failed: ' + res.status);
+      window.location.href = 'thanks.html';
+    } catch (ex) {
+      err.hidden = false;
+      btn.disabled = false;
+      btn.textContent = label;
+    }
+  });
 })();
 </script>
 

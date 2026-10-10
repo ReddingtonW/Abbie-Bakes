@@ -704,6 +704,40 @@
     margin:0 auto 18px; display:flex; align-items:center; justify-content:center;
   }
 
+  /* ---------- THANK-YOU PAGE + SEND ERROR ---------- */
+  .form-error{
+    background:var(--caramel-soft);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+    margin:0 0 20px;
+    font-size:15px;
+    color:var(--chocolate);
+  }
+  .form-error a{ color:var(--chocolate); font-weight:600; }
+
+  .thanks .success-panel{ padding:12px 0 4px; }
+  .thanks .success-panel .mark{ margin-bottom:20px; }
+  .thanks .success-panel h1{ font-size:clamp(30px,4.6vw,42px); margin:4px 0 14px; }
+  .thanks .lede{ color:var(--ink-soft); font-size:18px; max-width:46ch; margin:0 auto 30px; }
+  .next-steps{
+    list-style:none; padding:0; margin:0 auto 26px; max-width:46ch; text-align:left;
+  }
+  .next-steps li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:12px 0; border-top:1px solid var(--line); font-size:16.5px;
+  }
+  .next-steps li:last-child{ border-bottom:1px solid var(--line); }
+  .next-steps .n{
+    flex:0 0 28px; height:28px; border-radius:50%;
+    background:var(--chocolate); color:var(--cream);
+    font-weight:600; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .thanks .small-print{ margin:0 auto; max-width:46ch; }
+  .thanks .small-print a{ color:var(--accent); font-weight:600; }
+  .signoff{ font-weight:600; font-size:20px; margin:18px 0 6px; }
+  .thanks .cta-row{ justify-content:center; margin-top:26px; }
+
   @media (max-width:640px){
     .tile-group{ grid-template-columns:1fr; }
     .wizard-panel{ padding:26px 18px 22px; }
