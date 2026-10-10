@@ -103,6 +103,7 @@
     width:auto;
     display:block;
   }
+  .footer-logo{ align-self:flex-start; }
 
   nav.links{
     display:flex;
@@ -346,32 +347,37 @@
     gap:20px;
     margin-top:30px;
   }
+  /* "What I bake" cards share the Menu page card language:
+     same radius and padding as .flavour-card, tinted grounds,
+     a pill label like .card-eyebrow, and the same name/description scale. */
   a.highlight{
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:flex-start;
     min-height:220px;
-    padding:26px 24px;
+    padding:26px 22px;
     border-radius:var(--radius-md);
     text-decoration:none;
     transition:transform .15s ease;
   }
   a.highlight:hover{ transform:translateY(-3px); }
-  a.highlight.hl-cakes{ background:var(--caramel); }
-  a.highlight.hl-cupcakes{ background:var(--chocolate); }
+  a.highlight.hl-cakes{ background:var(--caramel-soft); border:1px solid transparent; }
+  a.highlight.hl-cupcakes{ background:var(--cream-deep); border:1px solid var(--line); }
   .highlight .hl-tag{
-    font-family:var(--font);
-    font-weight:500;
-    font-size:15px;
-    letter-spacing:.04em;
-    color:var(--chocolate);
+    align-self:flex-start;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:5px 14px;
+    border-radius:var(--radius-pill);
   }
-  .highlight h3{ font-size:23px; margin:26px 0 8px; }
-  .highlight p{ margin:0; font-size:16px; color:var(--chocolate); }
-  .highlight .hl-link{ margin-top:18px; font-weight:600; font-size:15px; }
-  a.highlight.hl-cupcakes .hl-tag,
-  a.highlight.hl-cupcakes h3,
-  a.highlight.hl-cupcakes p{ color:var(--cream); }
+  a.highlight.hl-cakes .hl-tag{ background:var(--caramel); color:var(--chocolate); }
+  a.highlight.hl-cupcakes .hl-tag{ background:var(--chocolate); color:var(--cream); }
+  .highlight > div{ flex:1; display:flex; flex-direction:column; }
+  .highlight h3{ font-size:25px; line-height:1.15; margin:26px 0 8px; }
+  .highlight p{ margin:0; font-size:16px; line-height:1.45; color:var(--chocolate); }
+  .highlight .hl-link{ margin-top:auto; padding-top:18px; font-weight:600; font-size:16px; }
 
   section.teaser{ padding:20px 0 56px; }
   .teaser-grid{
