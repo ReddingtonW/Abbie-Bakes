@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Order — Baked by Abbie</title>
-<meta name="description" content="Request a quote for a cake or muffins from Baked by Abbie. Orders need at least 4 weeks' notice.">
+<meta name="description" content="Request a quote for a cake or decorated cupcakes from Baked by Abbie. I need at least 4 weeks' notice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     <div class="wrap">
       <p class="eyebrow">Request a quote</p>
       <h1>Let's plan your order.</h1>
-      <p class="lede">This is a quote request, not a firm booking — Abbie will get back to you to confirm the final price and date. Orders need at least <strong>4 weeks' notice</strong>.</p>
+      <p class="lede">This is a quote request, not a firm booking — I'll get back to you to confirm the final price and date. I need at least <strong>4 weeks' notice</strong>.</p>
     </div>
   </section>
 
@@ -75,20 +75,15 @@
                 </span>
               </label>
               <label class="tile">
-                <input type="radio" name="product-type" value="Muffins">
+                <input type="radio" name="product-type" value="Cupcakes">
                 <span class="tile-card">
                   <span class="mark m2"></span>
-                  <span class="tile-label">Muffins</span>
-                </span>
-              </label>
-              <label class="tile">
-                <input type="radio" name="product-type" value="Bread">
-                <span class="tile-card">
-                  <span class="mark m3"></span>
-                  <span class="tile-label">Bread</span>
+                  <span class="tile-label">Decorated cupcakes</span>
                 </span>
               </label>
             </div>
+
+            <p class="email-cta">Looking for something else? <a href="mailto:hello@abbiebakes.com">Email me at hello@abbiebakes.com</a>.</p>
 
             <div class="step-nav">
               <span class="spacer"></span>
@@ -100,98 +95,46 @@
           <div class="step" data-step="2">
             <p class="step-eyebrow">Step 2 of 4</p>
             <h2 id="step2-title">Tell us more</h2>
-            <p class="step-sub">A few details so Abbie can quote accurately.</p>
+            <p class="step-sub">A few details so I can quote accurately.</p>
 
             <!-- CAKE fields -->
             <div class="product-section" data-product="Cake">
               <fieldset class="field">
-                <legend class="field-label">Layers <span style="font-weight:400; color:var(--ink-soft);">— 8 inch only, for now</span></legend>
-                <div class="pill-group" role="radiogroup" aria-label="Layers">
-                  <label class="pill"><input type="radio" name="cake-layers" value="2 layers"><span class="pill-face">2 layers — from £35</span></label>
-                  <label class="pill"><input type="radio" name="cake-layers" value="3 layers"><span class="pill-face">3 layers — from £45</span></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="field">
                 <legend class="field-label">Flavour</legend>
                 <div class="pill-group" role="radiogroup" aria-label="Cake flavour">
-                  <label class="pill"><input type="radio" name="cake-flavour" value="Chocolate cake, chocolate ganache, chocolate buttercream" data-reveal="cake-flavour-other" data-reveal-hide><span class="pill-face">Chocolate</span></label>
-                  <label class="pill"><input type="radio" name="cake-flavour" value="Victoria sponge, raspberry jam, vanilla buttercream" data-reveal="cake-flavour-other" data-reveal-hide><span class="pill-face">Victoria sponge</span></label>
-                  <label class="pill"><input type="radio" name="cake-flavour" value="Lemon cake, lemon curd, fresh lemon buttercream" data-reveal="cake-flavour-other" data-reveal-hide><span class="pill-face">Lemon</span></label>
-                  <label class="pill"><input type="radio" name="cake-flavour" value="Something else" data-reveal="cake-flavour-other"><span class="pill-face">Something else</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Chocolate" required><span class="pill-face">Chocolate</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Classic (Victoria sponge)"><span class="pill-face">Classic</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Lemon"><span class="pill-face">Lemon</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Coffee"><span class="pill-face">Coffee</span></label>
+                  <label class="pill"><input type="radio" name="cake-flavour" value="Carrot"><span class="pill-face">Carrot</span></label>
                 </div>
-                <div class="conditional" id="cake-flavour-other">
-                  <input type="text" name="cake-flavour-other-detail" placeholder="Describe the flavour you'd like">
-                </div>
+                <p class="hint">See the <a href="menu.html#cakes">menu</a> for what's in each flavour.</p>
               </fieldset>
-
-              <fieldset class="field">
-                <legend class="field-label">Decoration</legend>
-                <div class="pill-group" role="radiogroup" aria-label="Cake decoration">
-                  <label class="pill"><input type="radio" name="cake-decoration" value="Chocolate decoration" data-reveal="cake-decoration-other"><span class="pill-face">Chocolate decoration</span></label>
-                  <label class="pill"><input type="radio" name="cake-decoration" value="Fresh fruit decoration" data-reveal="cake-decoration-other"><span class="pill-face">Fresh fruit decoration</span></label>
-                  <label class="pill"><input type="radio" name="cake-decoration" value="Something else" data-reveal="cake-decoration-other"><span class="pill-face">Something else</span></label>
-                </div>
-                <div class="conditional" id="cake-decoration-other">
-                  <input type="text" name="cake-decoration-other-detail" placeholder="Describe the decoration you'd like">
-                </div>
-              </fieldset>
-
-              <fieldset class="field">
-                <legend class="field-label">Dietary</legend>
-                <div class="pill-group" role="radiogroup" aria-label="Cake dietary requirements">
-                  <label class="pill"><input type="radio" name="cake-dietary" value="Standard"><span class="pill-face">Standard</span></label>
-                  <label class="pill"><input type="radio" name="cake-dietary" value="Gluten free (+£5–8)"><span class="pill-face">Gluten free (+£5–8)</span></label>
-                  <label class="pill"><input type="radio" name="cake-dietary" value="Dairy free (+£5–8)"><span class="pill-face">Dairy free (+£5–8)</span></label>
-                </div>
-              </fieldset>
-
+              <p class="quote-note">Cakes start from &pound;60. A typical 8-inch cake serves approximately 12&ndash;16. Once I have your enquiry, I'll talk through size and price with you.</p>
             </div>
 
-            <!-- MUFFIN fields -->
-            <div class="product-section" data-product="Muffins">
+            <!-- CUPCAKE fields -->
+            <div class="product-section" data-product="Cupcakes">
               <fieldset class="field">
                 <legend class="field-label">Box size</legend>
-                <div class="pill-group" role="radiogroup" aria-label="Muffin box size">
-                  <label class="pill"><input type="radio" name="muffin-size" value="Box of 12 (£15–18)"><span class="pill-face">Box of 12 — £15–18</span></label>
-                  <label class="pill"><input type="radio" name="muffin-size" value="Box of 24 (£30–33)"><span class="pill-face">Box of 24 — £30–33</span></label>
+                <div class="pill-group" role="radiogroup" aria-label="Cupcake box size">
+                  <label class="pill"><input type="radio" name="cupcake-size" value="Box of 12 (&pound;18)" required><span class="pill-face">Box of 12 &mdash; &pound;18</span></label>
+                  <label class="pill"><input type="radio" name="cupcake-size" value="Box of 24 (&pound;36)"><span class="pill-face">Box of 24 &mdash; &pound;36</span></label>
                 </div>
               </fieldset>
-
               <fieldset class="field">
-                <legend class="field-label">Dietary</legend>
-                <div class="pill-group" role="radiogroup" aria-label="Muffin dietary requirements">
-                  <label class="pill"><input type="radio" name="muffin-dietary" value="Standard"><span class="pill-face">Standard</span></label>
-                  <label class="pill"><input type="radio" name="muffin-dietary" value="Gluten free (+£5–8)"><span class="pill-face">Gluten free (+£5–8)</span></label>
-                  <label class="pill"><input type="radio" name="muffin-dietary" value="Dairy free (+£5–8)"><span class="pill-face">Dairy free (+£5–8)</span></label>
+                <legend class="field-label">Flavour</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Cupcake flavour">
+                  <label class="pill"><input type="radio" name="cupcake-flavour" value="Chocolate" required><span class="pill-face">Chocolate</span></label>
+                  <label class="pill"><input type="radio" name="cupcake-flavour" value="Classic"><span class="pill-face">Classic</span></label>
+                  <label class="pill"><input type="radio" name="cupcake-flavour" value="Lemon"><span class="pill-face">Lemon</span></label>
                 </div>
+                <p class="hint">Each box is a single flavour and the decoration is included. See the <a href="menu.html#cupcakes">menu</a> for what's in each flavour.</p>
               </fieldset>
-
-              <div class="field">
-                <label class="field-label" for="muffin-notes">Flavour / decoration notes</label>
-                <textarea id="muffin-notes" name="muffin-notes" placeholder="Any flavour or decoration preferences?"></textarea>
-              </div>
+              <p class="quote-note">Need more than 24? Larger quantities are priced on request &mdash; just let me know in the notes on the next step.</p>
             </div>
 
-            <!-- BREAD fields -->
-            <div class="product-section" data-product="Bread">
-              <fieldset class="field">
-                <legend class="field-label">Type</legend>
-                <div class="pill-group" role="radiogroup" aria-label="Bread type">
-                  <label class="pill"><input type="radio" name="bread-type" value="Rosemary & olive focaccia" data-reveal="bread-type-other"><span class="pill-face">Rosemary &amp; olive focaccia</span></label>
-                  <label class="pill"><input type="radio" name="bread-type" value="Plain focaccia" data-reveal="bread-type-other"><span class="pill-face">Plain focaccia</span></label>
-                  <label class="pill"><input type="radio" name="bread-type" value="Something else" data-reveal="bread-type-other"><span class="pill-face">Something else</span></label>
-                </div>
-                <div class="conditional" id="bread-type-other">
-                  <input type="text" name="bread-type-other-detail" placeholder="What kind of loaf are you after?">
-                </div>
-              </fieldset>
-
-              <div class="field">
-                <label class="field-label" for="bread-qty">Quantity</label>
-                <input type="number" id="bread-qty" name="bread-qty" min="1" value="1" style="max-width:120px;">
-              </div>
-            </div>
+            <p class="email-cta">Can't see what you're after? <a href="mailto:hello@abbiebakes.com">Email me at hello@abbiebakes.com</a> and we'll sort something out.</p>
 
             <div class="step-nav">
               <button type="button" class="btn-plain" data-back>Back</button>
@@ -204,11 +147,11 @@
           <div class="step" data-step="3">
             <p class="step-eyebrow">Step 3 of 4</p>
             <h2>When &amp; who</h2>
-            <p class="step-sub">So Abbie can check availability and get back to you.</p>
+            <p class="step-sub">So I can check availability and get back to you.</p>
 
             <div class="lead-note">
               <span>⏱</span>
-              <span>Orders need at least <strong>4 weeks' notice</strong>. The date field below won't let you pick anything sooner — treat it as when you'd like it ready for collection.</span>
+              <span>I need at least <strong>4 weeks' notice</strong>. The date field below won't let you pick anything sooner — treat it as when you'd like it ready for collection.</span>
             </div>
 
             <div class="field">
@@ -233,8 +176,9 @@
             </div>
 
             <div class="field">
-              <label class="field-label" for="notes">Allergies or anything else Abbie should know</label>
+              <label class="field-label" for="notes">Allergies or anything else I should know</label>
               <textarea id="notes" name="notes" placeholder="Optional"></textarea>
+              <p class="hint">Allergen information is on the <a href="menu.html#allergens">menu page</a>.</p>
             </div>
 
             <div class="step-nav">
@@ -253,7 +197,7 @@
             <ul class="review-list" id="reviewList"></ul>
 
             <div class="quote-note">
-              This is a quote request. Abbie will reply by email to confirm the final price, availability and collection details.
+              This is a quote request. I'll reply by email to confirm the final price, availability and collection details.
             </div>
 
             <div class="step-nav">
@@ -273,7 +217,7 @@
   <div class="wrap footer-row">
     <div class="footer-brand">
       <span class="logo-word">Baked by Abbie</span>
-      <p>Home&#8209;baked cakes and muffins, made to order in Greater Manchester.</p>
+      <p>I bake cakes and decorated cupcakes to order in Greater Manchester.</p>
     </div>
     <nav class="footer-links" aria-label="Footer">
       <a href="menu.html">Menu</a>
@@ -317,6 +261,9 @@
     productSections.forEach(sec => {
       const active = sec.dataset.product === value;
       sec.classList.toggle('visible', active);
+      // disabled inputs are skipped by validation and not submitted, so the
+      // product that isn't being ordered can't block or pollute the request
+      sec.querySelectorAll('input, select, textarea').forEach(el => { el.disabled = !active; });
     });
     if (value) step2Title.textContent = value + ' details';
   }
@@ -324,22 +271,7 @@
   productRadios.forEach(r => {
     r.addEventListener('change', () => showProduct(r.value));
   });
-
-  // ---- "Something else" conditional text reveals ----
-  form.querySelectorAll('[data-reveal]').forEach(input => {
-    input.addEventListener('change', () => {
-      const groupName = input.name;
-      form.querySelectorAll(`input[name="${groupName}"]`).forEach(sibling => {
-        const target = document.getElementById(sibling.dataset.reveal);
-        if (!target) return;
-        if (sibling === input && !sibling.hasAttribute('data-reveal-hide')) {
-          target.classList.add('visible');
-        } else if (sibling === input) {
-          target.classList.remove('visible');
-        }
-      });
-    });
-  });
+  showProduct('');
 
   // ---- step navigation ----
   function isVisible(el){
@@ -415,23 +347,10 @@
     addRow(list, 'Ordering', product);
 
     if (product === 'Cake') {
-      addRow(list, 'Layers', val('cake-layers'));
-      let flavour = val('cake-flavour');
-      if (flavour === 'Something else') flavour = val('cake-flavour-other-detail') || flavour;
-      addRow(list, 'Flavour', flavour);
-      let decoration = val('cake-decoration');
-      if (decoration === 'Something else') decoration = val('cake-decoration-other-detail') || decoration;
-      addRow(list, 'Decoration', decoration);
-      addRow(list, 'Dietary', val('cake-dietary'));
-    } else if (product === 'Muffins') {
-      addRow(list, 'Box size', val('muffin-size'));
-      addRow(list, 'Dietary', val('muffin-dietary'));
-      addRow(list, 'Notes', val('muffin-notes'));
-    } else if (product === 'Bread') {
-      let type = val('bread-type');
-      if (type === 'Something else') type = val('bread-type-other-detail') || type;
-      addRow(list, 'Type', type);
-      addRow(list, 'Quantity', val('bread-qty'));
+      addRow(list, 'Flavour', val('cake-flavour'));
+    } else if (product === 'Cupcakes') {
+      addRow(list, 'Box size', val('cupcake-size'));
+      addRow(list, 'Flavour', val('cupcake-flavour'));
     }
 
     const dateVal = document.getElementById('date-needed').value;

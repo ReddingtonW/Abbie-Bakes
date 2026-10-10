@@ -195,50 +195,24 @@
     color:var(--ink);
   }
 
-  /* ---------- SWATCH / PREFERENCES STRIP ---------- */
-  section.swatches{
-    padding:50px 0 56px;
-  }
-  .swatch-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-bottom:28px;
-  }
-  .swatch-head h2{ font-size:clamp(26px,3.4vw,34px); }
-  .swatch-head p{ color:var(--ink-soft); max-width:38ch; margin:0; font-size:15px;}
-  .chip-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  .chip{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:var(--cream-deep);
-    border:1px solid var(--line);
-    padding:10px 18px 10px 12px;
-    border-radius:100px;
-    font-size:14.5px;
-    font-weight:600;
-  }
-  .dot{
-    width:16px;height:16px;border-radius:50%;flex-shrink:0;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
-  }
-  .dot.d1{background:var(--blush-deep);}
-  .dot.d2{background:var(--rose);}
-  .dot.d3{background:#7B5A3C;}
-  .dot.d4{background:var(--sage-deep);}
-
   /* ---------- MENU ---------- */
   section.menu{ padding:48px 0 60px; }
   .menu-head{ margin-bottom:34px; }
   .menu-head h2{ font-size:clamp(28px,3.8vw,38px); }
   .menu-head p{ color:var(--ink-soft); margin-top:12px; max-width:50ch; }
+  .menu-head p.eyebrow{ color:var(--rose-deep); margin:0 0 12px; max-width:none; }
+  .menu-head p a{ color:var(--rose-deep); font-weight:600; }
+  .price-card{ max-width:520px; margin-bottom:8px; }
+  .small-print{ font-size:13.5px; color:var(--ink-soft); margin:22px 0 0; max-width:62ch; }
+  section.allergens{ padding:0 0 40px; }
+  .note-panel{
+    background:var(--cream-deep);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 28px;
+  }
+  .note-panel h3{ font-size:20px; margin-bottom:8px; }
+  .note-panel p{ margin:0; color:var(--ink-soft); font-size:14.5px; max-width:70ch; }
 
   .menu-grid{
     display:grid;
@@ -262,7 +236,7 @@
     margin-bottom:16px;
   }
   .menu-card.cakes .card-eyebrow{ background:var(--blush); color:#7A2F3A;}
-  .menu-card.muffins .card-eyebrow{ background:var(--sage); color:#3D5A34;}
+  .menu-card.cupcakes .card-eyebrow{ background:var(--sage); color:#3D5A34;}
   .menu-card h3{ font-size:23px; margin-bottom:4px;}
   .menu-card .sub{ color:var(--ink-soft); font-size:14px; margin-bottom:22px;}
 
@@ -310,6 +284,8 @@
   .flavour-card.f1{ background:var(--butter); }
   .flavour-card.f2{ background:var(--blush); }
   .flavour-card.f3{ background:var(--sky); }
+  .flavour-card.f4{ background:var(--sage); }
+  .flavour-card.f5{ background:var(--lavender); }
   .flavour-num{
     font-family:'Fraunces', serif;
     font-style:italic;
@@ -365,7 +341,7 @@
   }
   a.highlight:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(59,51,53,.10); }
   a.highlight.hl-cakes{ background:var(--blush); }
-  a.highlight.hl-muffins{ background:var(--butter); }
+  a.highlight.hl-cupcakes{ background:var(--butter); }
   .highlight .hl-tag{
     font-family:'Fraunces', serif;
     font-style:italic;
@@ -596,7 +572,9 @@
   .field textarea:focus{ outline:none; border-color:var(--rose-deep); background:#fff; }
   .field textarea{ min-height:90px; resize:vertical; font-family:'Public Sans', sans-serif; }
 
-  .tile-group{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .tile-group{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .email-cta{ font-size:14px; color:var(--ink-soft); margin:18px 0 8px; }
+  .email-cta a{ color:var(--rose-deep); font-weight:700; }
   .tile{ position:relative; cursor:pointer; display:block; }
   .tile input{ position:absolute; opacity:0; width:1px; height:1px; }
   .tile .tile-card{
