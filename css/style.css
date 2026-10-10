@@ -96,14 +96,14 @@
     gap:10px;
     text-decoration:none;
   }
-  .logo svg{flex-shrink:0;}
-  .logo-word{
-    font-family:var(--font);
-    font-weight:600;
-    font-size:22px;
-    letter-spacing:.01em;
-    color:var(--ink);
+  /* Horizontal lockup: monogram circle stays >= 32px (system minimum) */
+  .logo img,
+  .footer-logo{
+    height:40px;
+    width:auto;
+    display:block;
   }
+
   nav.links{
     display:flex;
     gap:28px;
@@ -496,7 +496,6 @@
     flex-wrap:wrap;
     gap:14px;
   }
-  .footer-row .logo-word{ font-size:19px; }
   footer.site p{
     color:var(--ink-soft);
     font-size:14px;
@@ -515,6 +514,7 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:880px){
+    .logo img{ height:36px; }
     .hero-grid{grid-template-columns:1fr; gap:34px;}
     .hero-photo{order:-1; aspect-ratio:16/11;}
     .menu-grid{grid-template-columns:1fr;}
