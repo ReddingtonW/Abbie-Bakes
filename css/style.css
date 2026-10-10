@@ -295,10 +295,10 @@
     flex-direction:column;
     justify-content:space-between;
   }
-  .flavour-card.f1{ background:var(--caramel-soft); }
+  .flavour-card.f1{ background:var(--chocolate); }
   .flavour-card.f2{ background:var(--cream-deep); border:1px solid var(--line); }
-  .flavour-card.f3{ background:var(--caramel); }
-  .flavour-card.f4{ background:var(--chocolate); }
+  .flavour-card.f3{ background:var(--caramel-soft); }
+  .flavour-card.f4{ background:var(--caramel); }
   .flavour-card.f5{ background:var(--caramel-soft); }
   .flavour-card.f4 .flavour-name,
   .flavour-card.f4 .flavour-desc{ color:var(--cream); }
