@@ -448,7 +448,9 @@
     grid-template-columns:1.15fr 1fr;
     gap:56px;
     align-items:start;
-    padding:12px 0 64px;
+    /* top/bottom only: this element is also a .wrap, so keep its side gutters */
+    padding-top:12px;
+    padding-bottom:64px;
   }
   .about-copy p{
     font-size:18px;
