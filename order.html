@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order — Abbie Bakes</title>
+<title>Order — Baked by Abbie</title>
+<meta name="description" content="Request a quote for a cake, muffins or bread from Baked by Abbie. Orders need at least 4 weeks' notice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,19 +15,18 @@
 <header class="site">
   <div class="wrap nav-row">
     <a class="logo" href="index.html">
-      <svg width="34" height="30" viewBox="0 0 34 30" fill="none">
+      <svg width="34" height="30" viewBox="0 0 34 30" fill="none" aria-hidden="true">
         <ellipse cx="17" cy="25" rx="16" ry="4.2" fill="#E5DFF1"/>
         <ellipse cx="17" cy="16.5" rx="11.5" ry="3.4" fill="#F3D8DC"/>
         <ellipse cx="17" cy="9" rx="7" ry="2.6" fill="#F6E8C6"/>
       </svg>
-      <span class="logo-word">Abbie Bakes</span>
+      <span class="logo-word">Baked by Abbie</span>
     </a>
-    <nav class="links">
-      <a href="index.html#menu">Cakes</a>
-      <a href="index.html#flavours">Flavours</a>
-      <a href="index.html#gallery">Gallery</a>
-      <a href="index.html#bread">Bread</a>
-      <a href="order.html">Order</a>
+    <nav class="links" aria-label="Main">
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="order.html" class="nav-cta" aria-current="page">Order</a>
     </nav>
   </div>
 </header>
@@ -58,7 +58,7 @@
           this form will not actually deliver submissions anywhere.
         -->
         <form id="orderForm" action="https://formspree.io/f/meaqrpwe" method="POST">
-          <input type="hidden" name="_subject" value="New Abbie Bakes quote request">
+          <input type="hidden" name="_subject" value="New Baked by Abbie quote request">
 
           <!-- STEP 1: product type -->
           <div class="step visible" data-step="1">
@@ -271,8 +271,17 @@
 
 <footer class="site">
   <div class="wrap footer-row">
-    <span class="logo-word">Abbie Bakes</span>
-    <p>Home‑baked cakes, muffins &amp; bread — orders taken by enquiry.</p>
+    <div class="footer-brand">
+      <span class="logo-word">Baked by Abbie</span>
+      <p>Home&#8209;baked cakes, muffins &amp; bread, made to order in Greater Manchester.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="order.html">Order</a>
+      <a href="mailto:hello@abbiebakes.com">hello@abbiebakes.com</a>
+    </nav>
   </div>
 </footer>
 
