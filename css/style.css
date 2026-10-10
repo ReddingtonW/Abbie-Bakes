@@ -18,6 +18,11 @@
     --cream-deep:#F5E9D7;     /* caramel 14% on cream: panels, cards */
     --caramel-soft:#EBD5B7;   /* caramel 38% on cream: soft colour blocks */
 
+    /* Lemon tints: the one deliberate step outside the five brand colours,
+       used for lemon-flavoured items. Chocolate text reaches 8.8:1 / 9.3:1. */
+    --lemon:#E8D08F;          /* lemon cards */
+    --lemon-soft:#EBD79B;     /* paler lemon, for quieter accents */
+
     /* Roles */
     --ink:var(--chocolate);
     --ink-soft:#695244;       /* chocolate 80% on cream: 6.7:1 on cream */
@@ -294,14 +299,15 @@
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+    border:1px solid transparent;
   }
   .flavour-card.f1{ background:var(--chocolate); }
   .flavour-card.f2{ background:var(--cream-deep); border:1px solid var(--line); }
-  .flavour-card.f3{ background:var(--caramel-soft); }
+  .flavour-card.f3{ background:var(--lemon); }
   .flavour-card.f4{ background:var(--caramel); }
   .flavour-card.f5{ background:var(--caramel-soft); }
   .flavour-card.f1 .flavour-name,
-  .flavour-card.f1 .flavour-desc{ color:var(--cream);
+  .flavour-card.f1 .flavour-desc{ color:var(--cream); }
   .flavour-card.f4 .flavour-name,
   .flavour-card.f4 .flavour-desc{ color:var(--chocolate); }
   .flavour-name{
