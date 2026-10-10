@@ -286,16 +286,19 @@
   .flavour-card.f3{ background:var(--sky); }
   .flavour-card.f4{ background:var(--sage); }
   .flavour-card.f5{ background:var(--lavender); }
-  .flavour-num{
+  .flavour-name{
+    font-size:24px;
+    line-height:1.15;
+    margin:0;
+  }
+  .flavour-desc{
     font-family:'Fraunces', serif;
     font-style:italic;
-    font-size:14px;
-    color:rgba(59,51,53,.55);
-  }
-  .flavour-card h3{
-    font-size:20px;
-    margin-top:26px;
-    line-height:1.25;
+    font-weight:400;
+    font-size:15px;
+    line-height:1.45;
+    color:rgba(59,51,53,.85);
+    margin:26px 0 0;
   }
 
   /* ---------- INNER PAGE HEADERS ---------- */
