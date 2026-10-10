@@ -300,8 +300,10 @@
   .flavour-card.f3{ background:var(--caramel-soft); }
   .flavour-card.f4{ background:var(--caramel); }
   .flavour-card.f5{ background:var(--caramel-soft); }
+  .flavour-card.f1 .flavour-name,
+  .flavour-card.f1 .flavour-desc{ color:var(--cream);
   .flavour-card.f4 .flavour-name,
-  .flavour-card.f4 .flavour-desc{ color:var(--cream); }
+  .flavour-card.f4 .flavour-desc{ color:var(--chocolate); }
   .flavour-name{
     font-size:25px;
     line-height:1.15;
