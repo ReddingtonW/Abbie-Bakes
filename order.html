@@ -47,15 +47,9 @@
           <span class="dotstep" data-dot="3"></span>
           <span class="dotstep" data-dot="4"></span>
         </div>
-
-        <!--
-          TODO (Formspree): create a free account at https://formspree.io,
-          create a new form, and replace YOUR_FORM_ID below with the real
-          endpoint ID (e.g. https://formspree.io/f/abcd1234). Until then,
-          this form will not actually deliver submissions anywhere.
-        -->
-        <form id="orderForm" action="https://formspree.io/f/meaqrpwe" method="POST">
-          <input type="hidden" name="_subject" value="New Baked by Abbie quote request">
+        <form id="orderForm" action="/api/order" method="POST">
+          <!-- Honeypot: hidden from people, bots tend to fill it in -->
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 
           <!-- STEP 1: product type -->
           <div class="step visible" data-step="1">

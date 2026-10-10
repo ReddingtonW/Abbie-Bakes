@@ -704,6 +704,9 @@
     margin:0 auto 18px; display:flex; align-items:center; justify-content:center;
   }
 
+  /* spam honeypot: off-screen rather than display:none, so bots still see it */
+  .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
   /* ---------- THANK-YOU PAGE + SEND ERROR ---------- */
   .form-error{
     background:var(--caramel-soft);
