@@ -1,6 +1,6 @@
 /* =========================================================
-   Baked by Abbie — site stylesheet
-   Built on the Baked by Abbie design system:
+   Homebird Bakes — site stylesheet
+   Built on the Homebird Bakes design system (formerly Baked by Abbie):
    five brand colours, Josefin Sans (500 / 600), circles as the
    signature shape, rounded rectangles from the radius scale,
    no gradients, no decorative shadows.
@@ -12,7 +12,7 @@
     --caramel:#D0A064;    /* fills and blocks; text on chocolate only */
     --chocolate:#44291A;  /* text, dark ground */
     --toffee:#8C5420;     /* accent text on cream or cream-deep */
-    --cocoa:#5E3515;      /* reserved for the monogram's raised "b" */
+    --cocoa:#5E3515;      /* deep accent */
 
     /* Tints derived from the palette (mixed into cream) */
     --cream-deep:#F5E9D7;     /* caramel 14% on cream: panels, cards */
@@ -101,13 +101,15 @@
     gap:10px;
     text-decoration:none;
   }
-  /* Horizontal lockup: monogram circle stays >= 32px (system minimum) */
+  /* Horizontal lockup: the house mark stays >= 32px (system minimum).
+     Header at 44px so the spaced capitals read clearly; footer at 40px. */
   .logo img,
   .footer-logo{
     height:40px;
     width:auto;
     display:block;
   }
+  .logo img{ height:44px; }
   .footer-logo{ align-self:flex-start; }
 
   nav.links{
@@ -369,6 +371,17 @@
     transition:transform .15s ease;
   }
   a.highlight:hover{ transform:translateY(-3px); }
+  a.highlight{ position:relative; }
+  /* Icon from the Homebird icon set, in the brand circle */
+  .highlight .hl-icon{
+    position:absolute; top:18px; right:18px;
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--chocolate);
+  }
+  .highlight .hl-icon .icon{ width:28px; height:28px; }
+  a.highlight.hl-cakes .hl-icon{ background:var(--cream); }
+  a.highlight.hl-cupcakes .hl-icon{ background:var(--caramel-soft); }
   a.highlight.hl-cakes{ background:var(--caramel-soft); border:1px solid transparent; }
   a.highlight.hl-cupcakes{ background:var(--cream-deep); border:1px solid var(--line); }
   .highlight .hl-tag{
@@ -682,10 +695,11 @@
   button.btn-primary{ border:none; cursor:pointer; font-family:var(--font); }
 
   .lead-note{
-    display:flex; gap:10px; align-items:flex-start;
+    display:flex; gap:12px; align-items:flex-start;
     background:var(--caramel-soft); border-radius:var(--radius-sm); padding:14px 16px;
     font-size:15px; color:var(--chocolate); margin-bottom:24px;
   }
+  .lead-note .icon{ width:22px; height:22px; flex-shrink:0; color:var(--toffee); margin-top:1px; }
 
   .review-list{ list-style:none; padding:0; margin:0 0 26px; border-top:1px solid var(--line); }
   .review-list li{
