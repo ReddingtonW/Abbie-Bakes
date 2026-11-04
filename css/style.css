@@ -454,6 +454,8 @@
   .about-teaser-grid .eyebrow,
   .about-teaser-grid .section-link{ color:var(--chocolate); }
   .about-teaser-grid .section-link:hover{ color:var(--cocoa); }
+  /* keep the face in frame when the photo is cropped square or 16:11 */
+  .about-teaser-grid img.baker-photo{ object-position:58% 22%; }
 
   /* ---------- ABOUT PAGE ---------- */
   .about-grid{
@@ -481,6 +483,17 @@
   }
   .about-photos{ display:grid; gap:14px; }
   .about-photos img{ width:100%; height:auto; border-radius:var(--radius-md); }
+
+  /* Childhood snapshot set into the About copy, beside the paragraph it illustrates.
+     Same pill caption as the home hero's "Recent bake" tag. */
+  .about-snapshot{ float:right; width:min(42%, 236px); margin:6px 0 18px 28px; position:relative; }
+  .about-snapshot img{ width:100%; height:auto; display:block; border-radius:var(--radius-md); }
+  .about-snapshot figcaption{
+    position:absolute; left:10px; bottom:10px; width:max-content; max-width:calc(100% - 20px);
+    background:var(--cream); color:var(--chocolate); padding:6px 12px; border-radius:var(--radius-pill);
+    font-size:13px; font-weight:600; line-height:1.3;
+  }
+  .about-copy::after{ content:""; display:block; clear:both; }
 
   /* ---------- CTA / FOOTER ---------- */
   section.cta-block{ padding:16px 0 70px; }
@@ -755,6 +768,7 @@
   .thanks .cta-row{ justify-content:center; margin-top:26px; }
 
   @media (max-width:640px){
+    .about-snapshot{ float:none; width:72%; margin:4px 0 22px; }
     .tile-group{ grid-template-columns:1fr; }
     .wizard-panel{ padding:26px 18px 22px; }
 
