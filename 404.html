@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baked by Abbie is now Homebird Bakes</title>
+<link rel="canonical" href="https://homebird-bakes.co.uk/">
+<script>
+  (function () {
+    var p = location.pathname.replace(/^\/Abbie-Bakes/i, '').replace(/\/index\.html$/i, '/').replace(/\.html$/i, '');
+    var known = { '/': 1, '/menu': 1, '/gallery': 1, '/about': 1, '/order': 1, '/thanks': 1 };
+    if (!known[p]) p = '/';
+    location.replace('https://homebird-bakes.co.uk' + p + location.search + location.hash);
+  })();
+</script>
+<meta http-equiv="refresh" content="0; url=https://homebird-bakes.co.uk/">
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #FBF5EA; color: #44291A; font-family: "Josefin Sans", "Century Gothic", system-ui, sans-serif; text-align: center; padding: 24px; box-sizing: border-box; }
+  p { margin: 0 0 12px; font-size: 18px; line-height: 1.5; }
+  a { color: #8C5420; font-weight: 600; }
+</style>
+</head>
+<body>
+  <main>
+    <p>Baked by Abbie is now <strong>Homebird Bakes</strong>.</p>
+    <p><a href="https://homebird-bakes.co.uk/">Continue to homebird-bakes.co.uk</a></p>
+  </main>
+</body>
+</html>
