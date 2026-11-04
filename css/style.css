@@ -37,6 +37,10 @@
     --radius-pill:100px;
 
     --font:'Josefin Sans', system-ui, sans-serif;
+    /* Josefin Sans sits its capitals about 0.16em above the middle of the line box,
+       so labels in pills and buttons look high. Every pill/button adds this to its
+       top padding and takes it off the bottom, keeping the same overall height. */
+    --optical:.16em;
   }
 
   *{box-sizing:border-box;}
@@ -114,6 +118,8 @@
 
   nav.links{
     display:flex;
+    /* line the plain links up with the text inside the Order pill */
+    align-items:baseline;
     gap:28px;
     font-size:15px;
     font-weight:600;
@@ -131,7 +137,7 @@
   nav.links a.nav-cta{
     background:var(--chocolate);
     color:var(--cream);
-    padding:8px 20px;
+    padding:calc(8px + var(--optical)) 20px calc(8px - var(--optical));
     border-bottom:none;
     border-radius:var(--radius-pill);
   }
@@ -170,13 +176,18 @@
     flex-wrap:wrap;
   }
   .btn{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     font-family:var(--font);
     font-weight:600;
     font-size:16px;
     letter-spacing:.04em;
     text-decoration:none;
-    padding:14px 28px;
+    padding:calc(14px + var(--optical)) 28px calc(14px - var(--optical));
+    /* transparent border so solid and outlined buttons are the same height side by side */
+    border:1.5px solid transparent;
     border-radius:var(--radius-pill);
     transition:transform .15s ease, background .15s ease, color .15s ease;
   }
@@ -207,7 +218,7 @@
     left:16px;
     bottom:16px;
     background:var(--cream);
-    padding:8px 16px;
+    padding:calc(8px + var(--optical)) 16px calc(8px - var(--optical));
     border-radius:var(--radius-pill);
     font-size:13px;
     font-weight:600;
@@ -252,7 +263,7 @@
     font-weight:600;
     letter-spacing:.1em;
     text-transform:uppercase;
-    padding:5px 14px;
+    padding:calc(5px + var(--optical)) 14px calc(5px - var(--optical));
     border-radius:var(--radius-pill);
     margin-bottom:16px;
   }
@@ -390,7 +401,7 @@
     font-weight:600;
     letter-spacing:.1em;
     text-transform:uppercase;
-    padding:5px 14px;
+    padding:calc(5px + var(--optical)) 14px calc(5px - var(--optical));
     border-radius:var(--radius-pill);
   }
   a.highlight.hl-cakes .hl-tag{ background:var(--caramel); color:var(--chocolate); }
@@ -497,7 +508,7 @@
   .about-snapshot img{ width:100%; height:auto; display:block; border-radius:var(--radius-md); }
   .about-snapshot figcaption{
     position:absolute; left:10px; bottom:10px; width:max-content; max-width:calc(100% - 20px);
-    background:var(--cream); color:var(--chocolate); padding:6px 12px; border-radius:var(--radius-pill);
+    background:var(--cream); color:var(--chocolate); padding:calc(6px + var(--optical)) 12px calc(6px - var(--optical)); border-radius:var(--radius-pill);
     font-size:13px; font-weight:600; line-height:1.3;
   }
   .about-copy::after{ content:""; display:block; clear:both; }
@@ -579,7 +590,7 @@
     .about-photos{grid-template-columns:1fr 1fr; gap:10px;}
     .about-photos img{aspect-ratio:1/1; height:auto; object-fit:cover;}
     .about-cta{margin-top:0;}
-    nav.links{gap:16px; font-size:14px; align-items:center;}
+    nav.links{gap:16px; font-size:14px; align-items:baseline;}
     .cta-panel{padding:40px 22px;}
   }
 
@@ -687,7 +698,7 @@
   .pill{ position:relative; cursor:pointer; }
   .pill input{ position:absolute; opacity:0; width:1px; height:1px; }
   .pill .pill-face{
-    display:inline-block; padding:10px 18px; border-radius:var(--radius-pill);
+    display:inline-block; padding:calc(10px + var(--optical)) 18px calc(10px - var(--optical)); border-radius:var(--radius-pill);
     border:1.5px solid var(--line); background:var(--cream);
     font-size:15px; font-weight:600;
     transition:border-color .15s ease, background .15s ease, color .15s ease;
@@ -715,7 +726,7 @@
   }
   .btn-plain:hover{ color:var(--ink); }
 
-  button.btn-primary{ border:none; cursor:pointer; font-family:var(--font); }
+  button.btn-primary{ border:1.5px solid transparent; cursor:pointer; font-family:var(--font); }
 
   .lead-note{
     display:flex; gap:12px; align-items:flex-start;
@@ -792,7 +803,7 @@
     .step-nav .btn{
       width:100%;
       text-align:center;
-      padding:14px 20px;
+      padding:calc(14px + var(--optical)) 20px calc(14px - var(--optical));
     }
     .step-nav .btn-plain{
       width:100%;
