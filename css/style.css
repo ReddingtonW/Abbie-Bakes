@@ -458,10 +458,15 @@
   .about-teaser-grid img.baker-photo{ object-position:58% 22%; }
 
   /* ---------- ABOUT PAGE ---------- */
+  /* Source order is copy, photos, buttons (the order on phones).
+     On wide screens the photos take the right column and the buttons sit under the copy. */
   .about-grid{
     display:grid;
     grid-template-columns:1.15fr 1fr;
-    gap:56px;
+    grid-template-areas:"copy photos" "cta photos";
+    grid-template-rows:auto 1fr;
+    column-gap:56px;
+    row-gap:0;
     align-items:start;
     /* top/bottom only: this element is also a .wrap, so keep its side gutters */
     padding-top:12px;
@@ -481,7 +486,9 @@
     color:var(--ink);
     margin-bottom:22px;
   }
-  .about-photos{ display:grid; gap:14px; }
+  .about-copy{ grid-area:copy; }
+  .about-photos{ grid-area:photos; display:grid; gap:14px; }
+  .about-cta{ grid-area:cta; margin-top:8px; }
   .about-photos img{ width:100%; height:auto; border-radius:var(--radius-md); }
 
   /* Childhood snapshot set into the About copy, beside the paragraph it illustrates.
@@ -567,8 +574,11 @@
     .teaser-grid{grid-template-columns:repeat(2,1fr);}
     .about-teaser-grid{grid-template-columns:1fr; padding:28px; border-radius:var(--radius);}
     .about-teaser-grid img{order:-1; aspect-ratio:16/11;}
-    .about-grid{grid-template-columns:1fr; gap:34px;}
-    .about-photos{order:-1;}
+    .about-grid{grid-template-columns:1fr; grid-template-areas:"copy" "photos" "cta"; grid-template-rows:auto; row-gap:28px;}
+    /* after the copy, the two cakes sit side by side as square tiles */
+    .about-photos{grid-template-columns:1fr 1fr; gap:10px;}
+    .about-photos img{aspect-ratio:1/1; height:auto; object-fit:cover;}
+    .about-cta{margin-top:0;}
     nav.links{gap:16px; font-size:14px; align-items:center;}
     .cta-panel{padding:40px 22px;}
   }
@@ -768,7 +778,7 @@
   .thanks .cta-row{ justify-content:center; margin-top:26px; }
 
   @media (max-width:640px){
-    .about-snapshot{ float:none; width:72%; margin:4px 0 22px; }
+    .about-snapshot{ float:none; width:72%; margin:4px auto 22px; }
     .tile-group{ grid-template-columns:1fr; }
     .wizard-panel{ padding:26px 18px 22px; }
 
