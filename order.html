@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="season-christmas">
 
 <header class="site">
   <div class="wrap nav-row">
@@ -65,7 +65,7 @@
             <h2>What are you ordering?</h2>
             <p class="step-sub">Pick one to see the right questions.</p>
 
-            <div class="tile-group" role="radiogroup" aria-label="Product type">
+            <div class="tile-group three" role="radiogroup" aria-label="Product type">
               <label class="tile">
                 <input type="radio" name="product-type" value="Cake" required>
                 <span class="tile-card">
@@ -78,6 +78,15 @@
                 <span class="tile-card">
                   <span class="mark m2"></span>
                   <span class="tile-label">Decorated cupcakes</span>
+                </span>
+              </label>
+              <!-- Seasonal: remove out of season, along with the matching
+                   product-section in step 2 and lead-note in step 3.
+                   data-min-days / data-latest set the date rules for this product. -->
+              <label class="tile tile-season">
+                <input type="radio" name="product-type" value="Christmas cake" data-min-days="1" data-latest="12-24" data-subject="New Homebird Bakes Christmas cake request">
+                <span class="tile-card">
+                  <span class="tile-label"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.00 3.40 L14.41 9.28 L20.75 9.76 L15.90 13.87 L17.41 20.04 L12.00 16.70 L6.59 20.04 L8.10 13.87 L3.25 9.76 L9.59 9.28Z"/></svg>Christmas cake</span>
                 </span>
               </label>
             </div>
@@ -133,6 +142,20 @@
               <p class="quote-note">Need more than 24? Larger quantities are priced on request &mdash; just let me know in the notes on the next step.</p>
             </div>
 
+            <!-- CHRISTMAS CAKE fields (seasonal) -->
+            <div class="product-section section-season" data-product="Christmas cake">
+              <fieldset class="field">
+                <legend class="field-label">Size</legend>
+                <div class="pill-group" role="radiogroup" aria-label="Christmas cake size">
+                  <label class="pill"><input type="radio" name="christmas-size" value="6x6 inches (&pound;25)" required><span class="pill-face">6x6 inches &mdash; &pound;25</span></label>
+                  <label class="pill"><input type="radio" name="christmas-size" value="8x8 inches (&pound;40)"><span class="pill-face">8x8 inches &mdash; &pound;40</span></label>
+                  <label class="pill"><input type="radio" name="christmas-size" value="10x10 inches (&pound;50)"><span class="pill-face">10x10 inches &mdash; &pound;50</span></label>
+                </div>
+                <p class="hint">See the <a href="seasonal.html#menu">Christmas menu</a> for how many each size serves.</p>
+              </fieldset>
+              <p class="quote-note">I decorate my Christmas cakes with a traditional layer of marzipan and icing, and if you prefer yours booze and/or nut-free that can be arranged. Just add a note to your order.</p>
+            </div>
+
             <p class="email-cta">Can't see what you're after? <a href="mailto:hello@homebird-bakes.co.uk">Email me at <span class="email-addr">hello@homebird-bakes.co.uk</span></a> and we'll sort something out.</p>
 
             <div class="step-nav">
@@ -148,9 +171,15 @@
             <h2>When &amp; who</h2>
             <p class="step-sub">So I can check availability and get back to you.</p>
 
-            <div class="lead-note">
+            <!-- One lead note shows at a time: the one whose data-product matches
+                 the step 1 choice, otherwise data-product="default". -->
+            <div class="lead-note" data-product="default">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
               <span>I need at least <strong>4 weeks' notice</strong>. The date field below won't let you pick anything sooner — treat it as when you'd like it ready for collection.</span>
+            </div>
+            <div class="lead-note lead-season" data-product="Christmas cake" hidden>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.00 3.40 L14.41 9.28 L20.75 9.76 L15.90 13.87 L17.41 20.04 L12.00 16.70 L6.59 20.04 L8.10 13.87 L3.25 9.76 L9.59 9.28Z"/></svg>
+              <span>Christmas is a very busy time of year, and while I love baking, I only have one pair of hands and a small kitchen, so may not be able to accommodate every request.</span>
             </div>
 
             <div class="field">
@@ -237,15 +266,37 @@
   const dots = Array.from(document.querySelectorAll('.dotstep'));
   let current = 1;
 
-  // ---- 4-week lead time on the date field ----
+  // ---- date rules: 4 weeks' notice by default; a product's step 1 radio can
+  //      override with data-min-days and data-latest ("MM-DD", e.g. 12-24) ----
   const dateInput = document.getElementById('date-needed');
   const dateHint = document.getElementById('date-hint');
-  const earliest = new Date();
-  earliest.setDate(earliest.getDate() + 28);
-  const iso = earliest.toISOString().split('T')[0];
-  dateInput.min = iso;
-  const readable = earliest.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
-  dateHint.textContent = 'Earliest available date: ' + readable;
+  function isoDate(d){
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function readableDate(d){
+    return d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+  }
+  function setDateRules(radio){
+    const minDays = radio && radio.dataset.minDays ? Number(radio.dataset.minDays) : 28;
+    const earliest = new Date();
+    earliest.setHours(0, 0, 0, 0);
+    earliest.setDate(earliest.getDate() + minDays);
+    dateInput.min = isoDate(earliest);
+    let latest = null;
+    if (radio && radio.dataset.latest) {
+      const [mm, dd] = radio.dataset.latest.split('-').map(Number);
+      latest = new Date(earliest.getFullYear(), mm - 1, dd);
+      if (latest < earliest) latest.setFullYear(latest.getFullYear() + 1);
+    }
+    if (latest) {
+      dateInput.max = isoDate(latest);
+      dateHint.textContent = 'Choose a date between ' + readableDate(earliest) + ' and ' + readableDate(latest) + '.';
+    } else {
+      dateInput.removeAttribute('max');
+      dateHint.textContent = 'Earliest available date: ' + readableDate(earliest);
+    }
+  }
+  setDateRules(null);
 
   // ---- product type -> reveal the right field group ----
   const productRadios = form.querySelectorAll('input[name="product-type"]');
@@ -258,7 +309,16 @@
     });
   }
 
+  const leadNotes = form.querySelectorAll('.lead-note[data-product]');
+  const subjectInput = form.querySelector('input[name="_subject"]');
+  const defaultSubject = subjectInput.value;
+
   function showProduct(value){
+    const radio = form.querySelector('input[name="product-type"]:checked');
+    setDateRules(radio);
+    subjectInput.value = (radio && radio.dataset.subject) || defaultSubject;
+    const hasOwnNote = Array.from(leadNotes).some(n => n.dataset.product === value);
+    leadNotes.forEach(n => { n.hidden = n.dataset.product !== (hasOwnNote ? value : 'default'); });
     productSections.forEach(sec => {
       const active = sec.dataset.product === value;
       sec.classList.toggle('visible', active);
@@ -272,7 +332,16 @@
   productRadios.forEach(r => {
     r.addEventListener('change', () => showProduct(r.value));
   });
-  showProduct('');
+  // Links can preselect a product, e.g. order.html?bake=christmas picks the
+  // option whose value starts with "Christmas" (used by the seasonal page).
+  const wanted = new URLSearchParams(window.location.search).get('bake');
+  const preselect = wanted && Array.from(productRadios).find(r => r.value.toLowerCase().startsWith(wanted.toLowerCase()));
+  if (preselect) {
+    preselect.checked = true;
+    showProduct(preselect.value);
+  } else {
+    showProduct('');
+  }
 
   // ---- step navigation ----
   function isVisible(el){
@@ -352,6 +421,8 @@
     } else if (product === 'Cupcakes') {
       addRow(list, 'Box size', val('cupcake-size'));
       addRow(list, 'Flavour', val('cupcake-flavour'));
+    } else if (product === 'Christmas cake') {
+      addRow(list, 'Size', val('christmas-size'));
     }
 
     const dateVal = document.getElementById('date-needed').value;

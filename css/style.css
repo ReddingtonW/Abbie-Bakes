@@ -1003,6 +1003,29 @@
   .season-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
   .cta-motifs{ display:flex; justify-content:center; gap:14px; margin-bottom:18px; color:var(--caramel); }
+
+  /* Seasonal "Ready to order?" panel: the season's strong colour instead of chocolate */
+  .cta-panel.cta-season{ background:var(--season-strong); color:var(--season-on-strong); }
+  .cta-season h2{ color:var(--season-on-strong); }
+  .cta-season p{ color:var(--season-on-strong); opacity:.92; }
+  .cta-season .btn-primary{ background:var(--season-on-strong); color:var(--season-strong); }
+  .cta-season .btn-primary:hover{ background:var(--caramel); color:var(--chocolate); }
+  .cta-season .btn-ghost{ color:var(--season-on-strong); border-color:var(--season-on-strong); }
+  .cta-season .btn-ghost:hover{ background:rgba(251,245,234,.12); }
+
+  /* Order form, seasonal product: tile on the season's soft ground, its pills,
+     and the step 3 lead note */
+  .tile-group.three{ grid-template-columns:repeat(3,1fr); }
+  .tile.tile-season .tile-card{ background:var(--season-soft); border-color:transparent; }
+  .tile.tile-season:hover .tile-card{ border-color:var(--season-strong); }
+  .tile.tile-season input:checked + .tile-card{ border-color:var(--season-strong); background:var(--season-soft); }
+  .tile.tile-season input:focus-visible + .tile-card{ outline-color:var(--season-strong); }
+  .tile .tile-label .icon{ width:18px; height:18px; margin:-3px 7px 0 0; vertical-align:middle; color:var(--season-accent); }
+  .section-season .pill:hover .pill-face{ border-color:var(--season-strong); }
+  .section-season .pill input:checked + .pill-face{ border-color:var(--season-strong); background:var(--season-strong); color:var(--season-on-strong); }
+  .lead-note.lead-season{ background:var(--season-soft); }
+  .lead-note.lead-season .icon{ color:var(--season-accent); }
+  .lead-note[hidden]{ display:none; }
   .cta-motifs .icon{ width:22px; height:22px; }
 
   /* Mid widths: three cards get too narrow, so the seasonal one runs full width below */
@@ -1018,6 +1041,8 @@
     .season-ribbon .icon{ display:none; }
     /* 7 motifs fit a phone; 11 would be clipped at both edges */
     .motif-strip .icon:nth-child(n+8){ display:none; }
+    /* order form: the three product tiles stack, like the two did */
+    .tile-group.three{ grid-template-columns:1fr; }
   }
   /* Small phones: five nav items. Spread them across the full width under the
      logo, and let them wrap on the very smallest screens rather than overflow. */
