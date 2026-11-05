@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://homebird-bakes.co.uk/sitemap.xml

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pages for search engines to index. thanks.html is left out (it's noindex).
+     Update lastmod when a page's content changes. Out of season, remove /seasonal
+     if the page is unlinked. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://homebird-bakes.co.uk/</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://homebird-bakes.co.uk/menu</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://homebird-bakes.co.uk/seasonal</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://homebird-bakes.co.uk/gallery</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://homebird-bakes.co.uk/about</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://homebird-bakes.co.uk/order</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+</urlset>
