@@ -336,6 +336,41 @@
     color:var(--chocolate);
     margin:26px 0 0;
   }
+  /* "A different flavour?" card: the open slot at the end of a flavour grid.
+     Page-cream ground with a dashed toffee edge, the envelope icon in the
+     brand circle, and the whole card is the email link. */
+  a.flavour-card.f-ask{
+    position:relative;
+    background:transparent;
+    border:1.5px dashed var(--toffee);
+    color:var(--chocolate);
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease;
+  }
+  a.flavour-card.f-ask:hover{ transform:translateY(-3px); background:var(--cream-deep); }
+  .f-ask .flavour-name{ padding-right:64px; }
+  .f-ask .flavour-desc{ margin-top:16px; }
+  .f-ask .ask-icon{
+    position:absolute; top:18px; right:18px;
+    width:52px; height:52px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--caramel-soft);
+    color:var(--chocolate);
+  }
+  .f-ask .ask-icon .icon{ width:26px; height:26px; }
+  .f-ask .ask-link{
+    margin:14px 0 0;
+    font-weight:600;
+    font-size:16px;
+    color:var(--toffee);
+  }
+  a.flavour-card.f-ask:hover .ask-link{ color:var(--chocolate); }
+  /* Three narrow columns: the title would wrap round the icon and stretch
+     the row, so the icon steps out and the title takes the full width. */
+  @media (min-width:881px) and (max-width:1099px){
+    .f-ask .ask-icon{ display:none; }
+    .f-ask .flavour-name{ padding-right:0; }
+  }
 
   /* ---------- INNER PAGE HEADERS ---------- */
   .page-hero{ padding:28px 0 36px; }
