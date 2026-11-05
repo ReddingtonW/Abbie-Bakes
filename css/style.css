@@ -545,6 +545,17 @@
   }
   .cta-panel .btn-ghost:hover{ background:rgba(251,245,234,.1); }
 
+  /* Keep the email address on one line rather than breaking at its hyphen */
+  .email-addr{ white-space:nowrap; }
+  /* Very narrow phones: the address can't fit in the button, so it just says
+     "Or email me" (the address is still in the footer) */
+  @media (max-width:359px){
+    .email-at{ display:none; }
+  }
+  @media (min-width:360px) and (max-width:374px){
+    .cta-panel .btn-ghost{ padding-left:18px; padding-right:18px; }
+  }
+
   footer.site{
     padding:36px 0 46px;
     border-top:1px solid var(--line);
