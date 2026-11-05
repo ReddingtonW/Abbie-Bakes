@@ -451,10 +451,14 @@
     err.hidden = true;
     btn.disabled = true;
     btn.textContent = 'Sending\u2026';
+    // date inputs always submit yyyy-mm-dd; send it UK style (dd-mm-yyyy)
+    const data = new FormData(form);
+    const needed = data.get('date-needed');
+    if (needed) data.set('date-needed', needed.split('-').reverse().join('-'));
     try {
       const res = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: data,
         headers: { 'Accept': 'application/json' }
       });
       if (!res.ok) throw new Error('Send failed: ' + res.status);
