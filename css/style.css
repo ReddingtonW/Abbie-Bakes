@@ -544,6 +544,7 @@
     color:var(--cream);
   }
   .cta-panel .btn-ghost:hover{ background:rgba(251,245,234,.1); }
+  .cta-panel .cta-row{ justify-content:center; }
 
   /* Keep the email address on one line rather than breaking at its hyphen */
   .email-addr{ white-space:nowrap; }
