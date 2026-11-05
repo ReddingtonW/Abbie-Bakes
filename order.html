@@ -84,7 +84,7 @@
                    product-section in step 2 and lead-note in step 3.
                    data-min-days / data-latest set the date rules for this product. -->
               <label class="tile tile-season">
-                <input type="radio" name="product-type" value="Christmas cake" data-min-days="1" data-latest="12-24" data-subject="New Homebird Bakes Christmas cake request">
+                <input type="radio" name="product-type" value="Christmas cake" data-min-days="14" data-latest="12-20" data-subject="New Homebird Bakes Christmas cake request">
                 <span class="tile-card">
                   <span class="tile-label"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.00 3.40 L14.41 9.28 L20.75 9.76 L15.90 13.87 L17.41 20.04 L12.00 16.70 L6.59 20.04 L8.10 13.87 L3.25 9.76 L9.59 9.28Z"/></svg>Christmas cake</span>
                 </span>
@@ -278,19 +278,26 @@
   }
   function setDateRules(radio){
     const minDays = radio && radio.dataset.minDays ? Number(radio.dataset.minDays) : 28;
-    const earliest = new Date();
-    earliest.setHours(0, 0, 0, 0);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const earliest = new Date(today);
     earliest.setDate(earliest.getDate() + minDays);
     dateInput.min = isoDate(earliest);
     let latest = null;
     if (radio && radio.dataset.latest) {
+      // this year's date, or next year's once it has passed (e.g. 02-14 seen in December)
       const [mm, dd] = radio.dataset.latest.split('-').map(Number);
-      latest = new Date(earliest.getFullYear(), mm - 1, dd);
-      if (latest < earliest) latest.setFullYear(latest.getFullYear() + 1);
+      latest = new Date(today.getFullYear(), mm - 1, dd);
+      if (latest < today) latest.setFullYear(latest.getFullYear() + 1);
     }
     if (latest) {
       dateInput.max = isoDate(latest);
-      dateHint.textContent = 'Choose a date between ' + readableDate(earliest) + ' and ' + readableDate(latest) + '.';
+      // once the notice period runs past the last date, min > max and no date is valid
+      dateHint.textContent = earliest > latest
+        ? 'Sorry, there are no collection dates left. Please email me to ask.'
+        : earliest.getTime() === latest.getTime()
+          ? 'The last collection date is ' + readableDate(latest) + '.'
+          : 'Choose a date between ' + readableDate(earliest) + ' and ' + readableDate(latest) + '.';
     } else {
       dateInput.removeAttribute('max');
       dateHint.textContent = 'Earliest available date: ' + readableDate(earliest);
