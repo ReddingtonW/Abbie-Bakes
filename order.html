@@ -301,7 +301,33 @@
       dateInput.removeAttribute('max');
       dateHint.textContent = 'Earliest available date: ' + readableDate(earliest);
     }
+    dateRange = { earliest, latest };
+    checkDate();
   }
+
+  // The browser's own "Value must be … or later/earlier" message writes the date
+  // in its own format (often US, mm/dd/yyyy), so out-of-range dates get our own
+  // message with UK dates instead, worded like the hint under the box.
+  let dateRange = null;
+  function checkDate(){
+    dateInput.setCustomValidity('');
+    if (!dateRange) return;
+    const { earliest, latest } = dateRange;
+    const v = dateInput.validity;
+    let msg = '';
+    if (latest && earliest > latest) {
+      msg = 'Sorry, there are no collection dates left. Please email me to ask.';
+    } else if (v.rangeUnderflow || v.rangeOverflow) {
+      msg = !latest
+        ? 'The earliest available date is ' + readableDate(earliest) + '.'
+        : earliest.getTime() === latest.getTime()
+          ? 'The last collection date is ' + readableDate(latest) + '.'
+          : 'Please choose a date between ' + readableDate(earliest) + ' and ' + readableDate(latest) + '.';
+    }
+    dateInput.setCustomValidity(msg);
+  }
+  dateInput.addEventListener('input', checkDate);
+  dateInput.addEventListener('change', checkDate);
   setDateRules(null);
 
   // ---- product type -> reveal the right field group ----
